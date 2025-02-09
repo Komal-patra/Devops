@@ -206,3 +206,126 @@ ln /home/ec2-user/cloud/softandhardlink hardlinkfile
 ### Compare Differences Between Two Files:
 ```sh
 diff file1 file2
+```
+
+---
+
+# Editor Commands
+
+## Open a File in Editor:
+```sh
+vi filename
+# OR
+vim filename
+```
+
+## Insert Mode:
+```sh
+i  # Enter insert mode
+```
+
+## Exit Insert Mode and Save:
+```sh
+Press ESC, then type :wq
+```
+
+## Major Modes in Vi/Vim:
+
+### 1. Command Mode:
+```sh
+Shift + G  # Go to last line
+:set number  # Show line numbers
+:n  # Go to line number n
+```
+
+### 2. Insert Mode:
+```sh
+i  # Insert mode
+A  # Go to end of line
+o  # New line below
+O  # New line above
+```
+
+### 3. Save Mode:
+```sh
+:w  # Save
+:q  # Quit
+:wq  # Save and quit
+:wq!  # Force save and quit
+```
+
+---
+
+# Permissions
+
+## File Permission Format:
+```sh
+-rw-r--r--
+```
+
+## File Types:
+```sh
+-  # Regular file
+b  # Blocked file
+c  # Character file
+d  # Directory
+l  # Link file
+```
+
+## Permission Values:
+```sh
+r (read)  = 4
+w (write) = 2
+x (execute) = 1
+```
+
+## Changing File Permissions:
+```sh
+chmod 7 filename  # Full permissions
+chmod 6 filename  # Read & write
+chmod 4 filename  # Read-only
+chmod u=rw,g=rx,o=rwx filename  # Alphabetical format
+```
+
+## Ownership:
+```sh
+sudo chown username filename
+sudo chgrp groupname filename
+```
+
+---
+
+# System Level Commands
+```sh
+uname  # Platform name
+uptime  # System uptime
+whoami  # Active user
+who  # User login history
+which python  # Get installation path
+id  # User ID
+```
+
+## User Management:
+```sh
+sudo useradd -m username  # Add user
+sudo passwd username  # Change password
+su username  # Switch user
+sudo userdel username  # Delete user
+```
+
+---
+
+# File Compression
+```sh
+sudo yum install zip  # Install zip
+zip -r newfile.zip folder/  # Zip file/folder
+unzip foldername  # Unzip file
+```
+
+## TAR Commands:
+```sh
+tar -cvzf file.tar.gz folder/  # Compress
+
+tar -xvzf file.tar.gz  # Extract
+```
+
