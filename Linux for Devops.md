@@ -329,3 +329,121 @@ tar -cvzf file.tar.gz folder/  # Compress
 tar -xvzf file.tar.gz  # Extract
 ```
 
+---
+
+## File Transfer
+
+### Transfer File from Local to Remote:
+```sh
+scp -i "devops_komi_key.pem" localfilepath ec2-user@ec2-54-216-160-7.eu-west-1.compute.amazonaws.com:remotefile_path
+```
+
+---
+
+## Networking Commands
+
+### Check if Application is Responding:
+```sh
+ping urlname
+```
+
+### Show All Active Internet Connections:
+```sh
+netstat
+# OR
+ss
+```
+
+### Check Network Interface Card (NIC) Details:
+```sh
+ifconfig
+```
+
+### Trace Route to an Application:
+```sh
+traceroute application_name
+# Example:
+traceroute youtube.com
+```
+
+### Alternative Tracepath Command:
+```sh
+tracepath youtube.com
+```
+
+### Use MTR for Network Path Analysis:
+```sh
+mtr application_name
+# Example:
+mtr youtube.com   # Press 'q' to exit
+```
+
+### Show Active IP Address for an Application:
+```sh
+nslookup application_name
+# Example:
+nslookup google.com
+```
+
+### Show Hostname of Current System:
+```sh
+hostname
+```
+
+### Show IP Address of Laptop:
+```sh
+ip address show
+```
+
+### Get Detailed Information about an Application:
+```sh
+dig application_name
+```
+
+---
+
+## AWK (Data Extraction for Formatted Files)
+
+### Extract Specific Columns:
+```sh
+awk '{print $1}' app.log
+awk '{print $1, $2, $3}' app.log
+```
+
+### Filter Logs by Keyword:
+```sh
+awk '/INFO/ {print $1, $2, $3, $5}' app.log
+```
+
+### Count Occurrences of INFO:
+```sh
+awk '/INFO/ {count++} END {print count}' app.log
+```
+
+### Extract Logs Between Time Range:
+```sh
+awk '$2 >= "08:52:00" && $2<= "08:53:00" {print $2, $3, $4, $5}' app.log
+```
+
+---
+
+## SED (Stream Editor for Unformatted Data)
+
+### Extract Lines Containing INFO:
+```sh
+sed -n '/INFO/p' app.log
+```
+
+---
+
+## GREP (Global Regular Expression Print)
+
+### Search for a Word in a File:
+```sh
+grep INFO filename.log
+```
+
+### Find Count of Occurrences:
+```sh
+grep INFO -i -c filename.log
+```
